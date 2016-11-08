@@ -24,5 +24,9 @@ public class EntityFactory {
 	public ComboPooledDataSource getComboPooledDataSource() {
 		return new ComboPooledDataSource();
 	}
+	
+	public BasketEntity getBasketEntity(){
+		return new BasketEntity(jsonConverter);
+	}
 
 }

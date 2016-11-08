@@ -5,15 +5,16 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.StringJoiner;
 
-import javax.annotation.Resource;
-
 public class BasketEntity extends HashMap<Integer, BasketEntity.PriceStockPair> implements Serializable{
 	
-	@Resource
 	private JSONConverter jc;
 
 	private static final long serialVersionUID = 2L;
 	private static DecimalFormat df2 = new DecimalFormat(".##");
+	
+	public BasketEntity(JSONConverter jsonConverter) {
+		this.jc = jsonConverter;
+	}
 	
 	public class PriceStockPair implements Serializable{
 		
@@ -31,6 +32,8 @@ public class BasketEntity extends HashMap<Integer, BasketEntity.PriceStockPair> 
 		}
 	}
 	
+	
+
 	public double getPriceTotal(){
 		double d = 0;
 		for(int temp : this.keySet()){
